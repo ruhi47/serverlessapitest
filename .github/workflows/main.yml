@@ -13,25 +13,16 @@ jobs:
       matrix:
         node-version:[12.x]
     steps:
-<<<<<<< HEAD
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-    - name: serverless deploy
-      uses:serverless/github-action@master
-      with:
-        args: deploy
-      env:
-        AWS-ACCESS-KEY-ID: ${{ secrets AWS-ACCESS-KEY-ID }}
-        AWS-SECRET-ACCESS-KEY: ${{ secrets AWS-SECRET-ACCESS-KEY }}
-=======
-      -uses: actions/checkout@v2
-    with:
-      args: deploy
-    env:
-      AWS-ACCESS-KEY-ID: ${{ secrets AWS-ACCESS-KEY-ID }}
-      AWS-SECRET-ACCESS-KEY: ${{ secrets AWS-SECRET-ACCESS-KEY }}
->>>>>>> 17e6783cf1b1d4019feb55cecf011cb786309fa0
-
+      - name: serverless deploy
+         uses:serverless/github-action@master
+        with:
+          args: deploy
+        env:
+          AWS-ACCESS-KEY-ID: ${{ secrets AWS-ACCESS-KEY-ID }}
+          AWS-SECRET-ACCESS-KEY: ${{ secrets AWS-SECRET-ACCESS-KEY }}
+        
